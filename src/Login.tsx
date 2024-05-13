@@ -1,14 +1,14 @@
-
 import { FormEvent } from "react";
 import useForm from "./hooks/useForm";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
-   const { formData, handleChange, setFormData } = useForm({
-     email: "",
-     password: "",
-   });
+  const { formData, handleChange, setFormData } = useForm({
+    email: "",
+    password: "",
+  });
 
-
+  const navigate = useNavigate();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -19,6 +19,7 @@ const Login = () => {
       email: "",
       password: "",
     });
+    navigate("/app/students");
   };
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">

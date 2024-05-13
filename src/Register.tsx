@@ -1,5 +1,6 @@
 import { FormEvent } from "react";
 import useForm from "./hooks/useForm";
+import { useNavigate } from "react-router-dom";
 
 const Register: React.FC = () => {
   const { formData, handleChange, setFormData } = useForm({
@@ -9,6 +10,7 @@ const Register: React.FC = () => {
     phone: "",
     address: "",
   });
+  const navigate = useNavigate();
 
   const handleSubmit = (e: FormEvent) => {
     e.preventDefault();
@@ -21,6 +23,7 @@ const Register: React.FC = () => {
       phone: "",
       address: "",
     });
+    navigate("/login");
   };
   return (
     <div className="min-h-screen bg-gray-100 flex justify-center items-center">
